@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Electricity Bill Calculator</title>
+</head>
+<body>
+
+    <h1>Electricity Bill Calculator</h1>
+
+    <p>Enter the number of kilowatt-hours (kWh) used:</p>
+
+    <input type="number" id="kwh" placeholder="Enter kWh">
+    <button onclick="calculateBill()">Calculate</button>
+
+    <p id="result"></p>
+
+    <script>
+        function calculateBill() {
+
+            let kwh = Number(document.getElementById("kwh").value);
+
+            let basicCharge = 50;
+            let totalBill;
+
+            if (kwh <= 100) {
+                totalBill = basicCharge + (5 * kwh);
+            }
+            else if (kwh <= 200) {
+                totalBill = basicCharge + (7 * kwh);
+            }
+            else if (kwh <= 500) {
+                totalBill = basicCharge + (10 * kwh);
+            }
+            else {
+                totalBill = (basicCharge + (12 * kwh)) + 500;
+            }
+
+            document.getElementById("result").innerHTML =
+                "Your total electricity bill is " +
+                totalBill.toFixed(2) +
+                " pesos.";
+        }
+    </script>
+
+</body>
+</html>
